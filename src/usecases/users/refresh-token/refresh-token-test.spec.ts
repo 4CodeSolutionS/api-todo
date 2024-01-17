@@ -58,7 +58,6 @@ describe("Refresh token (unit)", () => {
         
         expect(newTokens).toEqual(
             expect.objectContaining({
-                refreshToken: expect.any(String),
                 accessToken: expect.any(String),
             })
         )

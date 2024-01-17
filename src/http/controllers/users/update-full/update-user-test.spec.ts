@@ -23,6 +23,7 @@ describe('Update User (e2e)', ()=>{
         .put('/api/users')
         .set('Authorization', `Bearer ${accessToken}`)
         .send({
+            id: 'dee2a509-b42d-4c80-a733-d76bce3a2fe0',
             name: 'Kaio Moreira',
             email: 'user5-dev@outlook.com',
         })
@@ -43,10 +44,11 @@ describe('Update User (e2e)', ()=>{
         .put('/api/users')
         .set('Authorization', `Bearer ${accessToken}`)
         .send({
-            id: 'dee2a509-b42d-4c80-a733-d76bce3a2f10',
+            id: 'fbcc390c-5fcb-4a4a-8ba4-536ce64c14a4',
             name: 'Kaio Moreira',
-            email: 'user11-dev@outlook.com',
+            email: 'user113-dev@outlook.com',
         })
+        console.log(response.body)
             
         expect(response.statusCode).toEqual(404)
     })
@@ -55,20 +57,21 @@ describe('Update User (e2e)', ()=>{
         await createAndAuthenticateUser(
             fastifyApp, 
             '6f4d1e86-c908-431a-aa11-08305024cd02',
-            'user12@test.com'
+            'user13@test.com'
             )
         const {accessToken, user} = await createAndAuthenticateUser(
             fastifyApp, 
             '35fbad92-bacf-45f8-bf41-85a9f1074181',
-            'user11@test.com'
+            'user15@test.com'
             )
 
         const response = await request(fastifyApp.server)
         .put('/api/users')
         .set('Authorization', `Bearer ${accessToken}`)
         .send({
+            id: '35fbad92-bacf-45f8-bf41-85a9f1074181',
             name: 'Kaio Moreira',
-            email: 'user12@test.com',
+            email: 'user13@test.com',
         })
         expect(response.statusCode).toEqual(409)
     })

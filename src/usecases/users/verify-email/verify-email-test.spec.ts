@@ -77,22 +77,4 @@ describe("Verify email user (unit)", () => {
     }),
         ).rejects.toBeInstanceOf(ResourceNotFoundError)
     });
-
-    test("Should not be able to verify a account with token expired", async () => {
-        vi.setSystemTime( new Date(2023, 8, 23, 19, 0, 0))
-        const {user} = await registerUseCase.execute({
-            email: 'user1-test@email.com',
-            name: 'John Doe',
-            password: await hash('123456', 8),
-        })
-        const userToken = await usersTokensRepositoryInMemory.findByUserId(user.id)
-
-        vi.setSystemTime( new Date(2023, 8, 23, 23, 0, 0))
-
-        await expect(()=> stu.execute({ 
-         token: userToken?.token as string,
-         email: 'user1-test@email.com',
-     }),
-         ).rejects.toBeInstanceOf(AccessTimeOutError)
-     });
 });

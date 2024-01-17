@@ -7,7 +7,7 @@ const ehtreal = await EtherealProvider.createTransporter();
     await ehtreal.sendEmail(
         'email@email.test', 
         'Kaio Moreira', 
-        'Redefinição de Senha', 
+        'Redefinição de Senhaa', 
         'link', 
         pathTemplate 
     );

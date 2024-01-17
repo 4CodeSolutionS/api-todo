@@ -8,18 +8,20 @@ import { z } from 'zod'
 export async function UpdateUser (request: FastifyRequest, reply:FastifyReply){
         try {
             const userSchemaBody = z.object({
+              id: z.string().uuid(),
               name: z.string().min(4), 
               email: z.string().email(), 
             })
 
             const { 
+                id,
                 email, 
                 name,
             } = userSchemaBody.parse(request.body)
             const updateUserUseCase = await makeUpdateUser()
             
             const {user} = await updateUserUseCase.execute({
-                id: request.user.id,
+                id,
                 email, 
                 name,
             })

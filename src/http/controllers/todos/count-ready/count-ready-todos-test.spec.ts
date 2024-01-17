@@ -43,8 +43,7 @@ describe('List by Todos by User (e2e)', ()=>{
         .get(`/api/todos/user`)
         .set('Authorization', `Bearer ${accessToken}`)
         .send()
-
         expect(responseListTodosByUser.statusCode).toEqual(200)
-        expect(responseListTodosByUser.body.todos).toHaveLength(5)
+        expect(responseListTodosByUser.body).toHaveLength(5)
     })
 })

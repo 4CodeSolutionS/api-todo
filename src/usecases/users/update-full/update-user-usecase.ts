@@ -2,7 +2,6 @@ import { IUsersRepository } from "@/repositories/interface-users-repository";
 import { User } from "@prisma/client";
 import 'dotenv/config'
 import { ResourceNotFoundError } from "@/usecases/errors/resource-not-found-error";
-import { CPFAlreadyExistsError } from "@/usecases/errors/cpf-already-exists-error";
 import { EmailAlreadyExistsError } from "@/usecases/errors/email-already-exists-error";
 
 interface IRequestUpdateUser {

@@ -34,10 +34,9 @@ describe("List all todo by user (unit)", () => {
         const todos = await stu.execute({
             idUser: 'id-user-test'
         })
+        expect(todos).toHaveLength(2)
 
-        expect(todos.todos).toHaveLength(2)
-
-        expect(todos.todos).toEqual(
+        expect(todos).toEqual(
             [
                 expect.objectContaining({id:'id-todo-1'}),
                 expect.objectContaining({id:'id-todo-2'}),
