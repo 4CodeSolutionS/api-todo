@@ -16,11 +16,11 @@ fastifyApp.register(fastifyCors, {
   })
 
 fastifyApp.register(usersRoutes,{
-    prefix: 'api/users'
+    prefix: 'users'
 })
 
 fastifyApp.register(todosRoutes,{
-  prefix: 'api/todos'
+  prefix: 'todos'
 })
   
 fastifyApp.setErrorHandler((error:FastifyError, _request:FastifyRequest, reply: FastifyReply)=>{
